@@ -15,9 +15,9 @@ import util.RateLimiter;
 public class ForgotPasswordServlet extends HttpServlet {
     
     // Database connection info - UPDATE THESE WITH YOUR ACTUAL VALUES
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/cybersphere?serverTimezone=UTC";
-    private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "root"; // Change to your MySQL password
+	private static final String DB_URL = System.getenv("DB_URL");
+	private static final String DB_USER = System.getenv("DB_USER");
+	private static final String DB_PASS = System.getenv("DB_PASS");
     
     // Email configuration - UPDATE THESE WITH YOUR ACTUAL VALUES
     private static final String SMTP_HOST = "smtp.gmail.com";

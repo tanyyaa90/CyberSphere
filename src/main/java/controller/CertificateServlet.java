@@ -10,9 +10,9 @@ import java.text.SimpleDateFormat;
 @WebServlet("/CertificateServlet")
 public class CertificateServlet extends HttpServlet {
 
-    private static final String DB_URL  = "jdbc:mysql://localhost:3306/cybersphere?zeroDateTimeBehavior=convertToNull";
-    private static final String DB_USER = "root";
-    private static final String DB_PASS = "root";
+	private static final String DB_URL = System.getenv("DB_URL");
+	private static final String DB_USER = System.getenv("DB_USER");
+	private static final String DB_PASS = System.getenv("DB_PASS");
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

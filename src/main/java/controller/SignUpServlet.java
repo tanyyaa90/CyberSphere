@@ -16,9 +16,9 @@ import org.mindrot.jbcrypt.BCrypt;
 @WebServlet("/SignUpServlet")
 public class SignUpServlet extends HttpServlet {
 
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/cybersphere?serverTimezone=UTC";
-    private static final String DB_USER = "root";
-    private static final String DB_PASS = "root";
+	private static final String DB_URL = System.getenv("DB_URL");
+	private static final String DB_USER = System.getenv("DB_USER");
+	private static final String DB_PASS = System.getenv("DB_PASS");
     
     // Default profile image
     private static final String DEFAULT_PROFILE_IMAGE = "https://i.ibb.co/6RfWN4zJ/buddy-10158022.png";

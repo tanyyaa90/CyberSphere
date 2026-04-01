@@ -10,9 +10,9 @@ import org.mindrot.jbcrypt.BCrypt;
 @WebServlet("/resetPasswordServlet")
 public class ResetPasswordServlet extends HttpServlet {
     
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/cybersphere";
-    private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "root";
+	private static final String DB_URL = System.getenv("DB_URL");
+	private static final String DB_USER = System.getenv("DB_USER");
+	private static final String DB_PASS = System.getenv("DB_PASS");
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

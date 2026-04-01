@@ -9,9 +9,9 @@ import java.sql.*;
 @WebServlet("/admin/SettingsServlet")
 public class SettingsServlet extends HttpServlet {
     
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/cybersphere";
-    private static final String DB_USER = "root";
-    private static final String DB_PASS = "root";
+	private static final String DB_URL = System.getenv("DB_URL");
+	private static final String DB_USER = System.getenv("DB_USER");
+	private static final String DB_PASS = System.getenv("DB_PASS");
     private static final long serialVersionUID = 1L;
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
