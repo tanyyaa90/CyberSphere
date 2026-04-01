@@ -59,7 +59,7 @@ public class ProfileServlet extends HttpServlet {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 
             String sql = "SELECT id, first_name, last_name, username, email, phone, profile_image " +
                          "FROM users WHERE id = ?";
@@ -136,7 +136,7 @@ public class ProfileServlet extends HttpServlet {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 
             // Check username uniqueness (excluding current user)
             PreparedStatement checkStmt = conn.prepareStatement(
@@ -204,7 +204,7 @@ public class ProfileServlet extends HttpServlet {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 
             String sql = "UPDATE users SET profile_image = ? WHERE id = ?";
             stmt = conn.prepareStatement(sql);

@@ -40,7 +40,7 @@ public class UpdateProfileImageServlet extends HttpServlet {
         
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             
             // Check if profile_image column exists, if not add it
             String checkColumnSql = "SHOW COLUMNS FROM users LIKE 'profile_image'";
