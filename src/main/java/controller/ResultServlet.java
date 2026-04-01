@@ -5,51 +5,21 @@ import model.Question;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.util.*;
+import java.sql.*;
 
 @WebServlet("/ResultServlet")
 public class ResultServlet extends HttpServlet {
 
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/cybersphere";
+    private static final String DB_USER = "root";
+    private static final String DB_PASS = "root";
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String level = request.getParameter("level");
-        if (level == null || level.isEmpty()) {
-            level = "Beginner";
-        }
-
-        QuestionDAO dao = new QuestionDAO();
-        List<Question> questions = dao.getQuestionsByLevel(level);
-
-        if (questions == null || questions.isEmpty()) {
-            request.setAttribute("error", "No questions found for level: " + level);
-            request.getRequestDispatcher("quiz.jsp").forward(request, response);
-            return;
-        }
-
-        int score = 0;
-        int total = questions.size();
-        Set<String> weakTopics = new HashSet<>();
-
-        for (Question q : questions) {
-            String userAnswer = request.getParameter("q" + q.getId());
-
-            if (userAnswer != null && userAnswer.equals(q.getCorrectAnswer())) {
-                score++;
-            } else {
-                weakTopics.add(q.getTopic());
-            }
-        }
-        
-        request.setAttribute("score", score);
-        request.setAttribute("total", total);
-        request.setAttribute("weakTopics", weakTopics);
-        request.setAttribute("level", level);
-        request.getRequestDispatcher("result.jsp").forward(request, response);
-    }
-}
+        // Replaced by QuizServlet.doPost() — do not use
+        response.sendRedirect("home.jsp");
+    }}

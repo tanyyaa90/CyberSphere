@@ -11,23 +11,10 @@ public class Question {
     private String correctAnswer;
     private String topic;
     private String level;
+    private String sublevel;  
+    private String explanation;// ADD THIS
 
-    public Question() {}
-
-    public Question(int id, String questionText, String optionA, String optionB,
-                    String optionC, String optionD, String correctAnswer,
-                    String topic, String level) {
-
-        this.id = id;
-        this.questionText = questionText;
-        this.optionA = optionA;
-        this.optionB = optionB;
-        this.optionC = optionC;
-        this.optionD = optionD;
-        this.correctAnswer = correctAnswer;
-        this.topic = topic;
-        this.level = level;
-    }
+    // Getters and Setters
 
     public int getId() {
         return id;
@@ -38,10 +25,6 @@ public class Question {
     }
 
     public String getQuestionText() {
-        return questionText;
-    }
-
-    public String getQuestion() {
         return questionText;
     }
 
@@ -103,5 +86,20 @@ public class Question {
 
     public void setLevel(String level) {
         this.level = level;
+    }
+
+    public String getSublevel() {
+        return sublevel;
+    }
+
+    public void setSublevel(String sublevel) {
+        this.sublevel = sublevel;
+    }
+    public String getExplanation() {
+        return explanation;
+    }
+
+    public void setExplanation(String explanation) {
+        this.explanation = explanation;
     }
 }

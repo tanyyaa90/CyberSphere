@@ -1,0 +1,96 @@
+/* ===============================
+   ROOT COLORS
+================================ */
+:root{
+    --primary:#210440;
+    --peach:#FDB095;
+    --rose:#E5958E;
+    --accent:#FFBA00;
+    --black:#000000;
+    --white:#FFFFFF;
+}
+
+/* ===============================
+   GLOBAL RESET
+================================ */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, Arial, sans-serif;
+}
+
+/* ===============================
+   BODY
+================================ */
+body{
+    height:100vh;
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        #3b0a70
+    );
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:var(--white);
+}
+
+/* ===============================
+   LOGIN CONTAINER
+================================ */
+.login-container{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(12px);
+    padding:40px;
+    width:350px;
+    border-radius:20px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.4);
+    text-align:center;
+}
+
+/* ===============================
+   INPUTS
+================================ */
+.login-container input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:10px;
+    background:#ffffff15;
+    color:var(--white);
+}
+
+/* ===============================
+   BUTTONS (GLOBAL)
+================================ */
+.btn{
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    background:var(--accent);
+    color:var(--black);
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:var(--peach);
+}
+
+/* Login button override */
+.login-container button{
+    width:100%;
+}
+
+/* ===============================
+   CARDS (Learning Hub / Topics)
+================================ */
+.card{
+    background:rgba(255,255,255,0.08);
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+}

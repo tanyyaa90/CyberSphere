@@ -1,48 +1,167 @@
-/* PROGRESS CIRCLES - GUARANTEED VISIBLE TEXT */
-.progress-circle,
-.question-number,
-.progress-indicator div,
-.quiz-progress .circle,
-.progress-step,
-[class*="progress-"] .number,
-[class*="circle"] {
-    background-color: var(--progress-circle-bg) !important;
-    color: var(--progress-circle-text) !important;
-    
-    /* Ensure proper circle styling */
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 32px !important;
-    height: 32px !important;
-    border-radius: 50% !important;
-    font-weight: bold !important;
-    font-size: 14px !important;
-    border: none !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-/* Specific overrides for any progress indicators */
-#question-progress .circle,
-.quiz-container .progress-number,
-.question-nav .step,
-.quiz-nav .step-number {
-    background-color: var(--progress-circle-bg) !important;
-    color: var(--progress-circle-text) !important;
+.progress-bar{
+    height:8px;
+    background:#e5e7eb;
+    border-radius:10px;
+    overflow:hidden;
+    margin-bottom:25px;
 }
 
-/* If using numbered lists for progress */
-ol.progress-steps li::before,
-ul.progress-indicator li::marker {
-    background-color: var(--progress-circle-bg) !important;
-    color: var(--progress-circle-text) !important;
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:#2563eb;
+    transition:.3s;
 }
 
-/* For any SVG or icon-based progress */
-.progress-circle svg,
-.progress-circle path,
-.progress-circle text {
-    fill: var(--progress-circle-text) !important;
-    color: var(--progress-circle-text) !important;
-    stroke: var(--progress-circle-text) !important;
+/* LEVEL BADGE — FINAL FIX */
+.progress-top .level-text{
+    font-size:22px !important;
+    font-weight:700;
+    color:#2563eb !important;
+    background:#eff6ff !important;
+    padding:6px 14px;
+    border-radius:20px;
+    display:inline-block;
+}
+
+/* Certificate Styles - Add at the end of your style.css */
+.certificate {
+    width: 800px;
+    padding: 40px;
+    background: white;
+    border: 20px solid #1a3b5d;
+    border-image: repeating-linear-gradient(45deg, #1a3b5d, #3498db 20px) 30;
+    text-align: center;
+    font-family: 'Times New Roman', serif;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    margin: 20px auto;
+}
+
+.certificate-header h1 {
+    color: #1a3b5d;
+    font-size: 48px;
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.certificate-header h2 {
+    color: #3498db;
+    font-size: 32px;
+    margin: 10px 0;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.certificate-body {
+    margin: 30px 0;
+}
+
+.certificate-body p {
+    font-size: 18px;
+    color: #333;
+    margin: 15px 0;
+}
+
+.certificate-body h3 {
+    font-size: 36px;
+    color: #1a3b5d;
+    margin: 10px 0;
+    font-weight: bold;
+    border-bottom: 2px dashed #3498db;
+    display: inline-block;
+    padding: 0 30px;
+}
+
+.certificate-body h4 {
+    font-size: 24px;
+    color: #3498db;
+    margin: 10px 0;
+}
+
+.certificate-body h2 {
+    font-size: 48px;
+    color: #27ae60;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.certificate-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #ccc;
+}
+
+.signature {
+    text-align: left;
+}
+
+.signature p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.badge img {
+    width: 80px;
+    height: 80px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 900px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+.download-btn {
+    background: linear-gradient(135deg, #1a3b5d, #3498db);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.download-btn:hover {
+    background: linear-gradient(135deg, #3498db, #1a3b5d);
 }
