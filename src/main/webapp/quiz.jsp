@@ -357,12 +357,6 @@
             opacity: 1;
         }
 
-        /* ── CONFETTI ── */
-        #confettiCanvas {
-            position: fixed; inset: 0;
-            pointer-events: none; z-index: 200;
-        }
-
         @media (max-width:600px) {
             .page { padding:0 12px 40px; }
             .q-header { padding:14px 18px; }
@@ -435,8 +429,6 @@
     </style>
 </head>
 <body>
-
-<canvas id="confettiCanvas"></canvas>
 
 <!-- Exit confirmation modal -->
 <div class="modal-backdrop" id="exitModal">
@@ -596,42 +588,6 @@ document.getElementById('modalLeave').addEventListener('click', function () {
     window.location.href = 'select_sublevel.jsp?level=<%= level %>';
 });
 
-/* ── CONFETTI (green palette to match site) ── */
-const confettiCanvas = document.getElementById('confettiCanvas');
-const cCtx = confettiCanvas.getContext('2d');
-confettiCanvas.width  = window.innerWidth;
-confettiCanvas.height = window.innerHeight;
-window.addEventListener('resize', () => {
-    confettiCanvas.width  = window.innerWidth;
-    confettiCanvas.height = window.innerHeight;
-});
-let bits = [], cfRunning = false;
-function launchConfetti() {
-    bits = Array.from({length:55}, () => ({
-        x: Math.random()*confettiCanvas.width, y:-10,
-        r: Math.random()*6+3,
-        color:['#44634d','#86efac','#5a8066','#a7f3d0','#d1fae5'][Math.floor(Math.random()*5)],
-        vx:(Math.random()-.5)*5, vy:Math.random()*3+2,
-        rot:Math.random()*360, rv:(Math.random()-.5)*7,
-        rect:Math.random()>.5
-    }));
-    if(!cfRunning){cfRunning=true;animateCF();}
-}
-function animateCF(){
-    cCtx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height);
-    bits=bits.filter(b=>b.y<confettiCanvas.height+20);
-    bits.forEach(b=>{
-        cCtx.save(); cCtx.translate(b.x,b.y); cCtx.rotate(b.rot*Math.PI/180);
-        cCtx.fillStyle=b.color;
-        if(b.rect) cCtx.fillRect(-b.r/2,-b.r/2,b.r,b.r*1.6);
-        else{cCtx.beginPath();cCtx.arc(0,0,b.r/2,0,Math.PI*2);cCtx.fill();}
-        cCtx.restore();
-        b.x+=b.vx; b.y+=b.vy; b.rot+=b.rv; b.vy+=.07;
-    });
-    if(bits.length) requestAnimationFrame(animateCF);
-    else cfRunning=false;
-}
-
 /* ── STREAK TOAST ── */
 let streakTimer;
 function showStreak(n){
@@ -728,7 +684,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.querySelector(".check-icon").style.display = "inline";
                 streak++;
                 if (streak >= 2) showStreak(streak);
-                if (streak >= 3) launchConfetti();
             } else {
                 this.classList.add("opt-wrong");
                 this.querySelector(".wrong-icon").style.display = "inline";
@@ -780,7 +735,6 @@ document.addEventListener("DOMContentLoaded", function () {
     submitBtn.addEventListener("click", function () {
         if (!answered[currentIndex]) return;
         quizSubmitting = true; // allow navigation — quiz is being submitted
-        launchConfetti();
         setTimeout(() => quizForm.submit(), 550);
     });
 

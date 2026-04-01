@@ -58,7 +58,7 @@ public class ContactServlet extends HttpServlet {
         
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             
             String sql = "INSERT INTO contact_messages (name, email, phone, subject, message, status, submitted_at) " +
                          "VALUES (?, ?, ?, ?, ?, 'unread', NOW())";

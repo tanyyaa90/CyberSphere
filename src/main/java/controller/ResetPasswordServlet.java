@@ -38,7 +38,7 @@ public class ResetPasswordServlet extends HttpServlet {
         
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             
             // Hash the new password
             String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());

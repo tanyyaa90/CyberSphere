@@ -54,7 +54,7 @@ public class UpdateProfileServlet extends HttpServlet {
         
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             
             // Check if username is already taken by another user
             String checkSql = "SELECT id FROM users WHERE username = ? AND id != ?";

@@ -53,7 +53,7 @@ public class CheckUsernameServlet extends HttpServlet {
             System.out.println("✅ MySQL Driver loaded");
             
             // Connect to database
-            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             System.out.println("✅ Connected to database");
             
             String sql;
