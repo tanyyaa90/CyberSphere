@@ -233,6 +233,42 @@
         font-weight: 500;
     }
 
+    /* Contact Button Styles */
+    .contact-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background: #44634d;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(68, 99, 77, 0.3);
+        z-index: 1000;
+        border: none;
+        text-decoration: none;
+    }
+
+    .contact-btn i {
+        font-size: 28px;
+        color: white;
+        transition: transform 0.3s ease;
+    }
+
+    .contact-btn:hover {
+        transform: scale(1.1);
+        background: #5a7f66;
+        box-shadow: 0 6px 20px rgba(68, 99, 77, 0.4);
+    }
+
+    .contact-btn:hover i {
+        transform: rotate(10deg);
+    }
+
     /* Modal styles for logout confirmation */
     .modal {
         display: none;
@@ -370,6 +406,17 @@
         .admin-section-header h2 {
             font-size: 20px;
         }
+
+        .contact-btn {
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .contact-btn i {
+            font-size: 24px;
+        }
     }
 
     /* Small Mobile Devices */
@@ -411,6 +458,17 @@
         .modal-body {
             font-size: 13px;
         }
+
+        .contact-btn {
+            bottom: 15px;
+            right: 15px;
+            width: 45px;
+            height: 45px;
+        }
+
+        .contact-btn i {
+            font-size: 20px;
+        }
     }
 
     /* Tablet Devices */
@@ -442,6 +500,17 @@
         .hero-section p {
             font-size: 20px;
         }
+
+        .contact-btn {
+            bottom: 40px;
+            right: 40px;
+            width: 70px;
+            height: 70px;
+        }
+
+        .contact-btn i {
+            font-size: 32px;
+        }
     }
 
     /* Print Styles */
@@ -451,7 +520,8 @@
         }
         
         .feature-btn,
-        .modal {
+        .modal,
+        .contact-btn {
             display: none;
         }
         
@@ -463,7 +533,8 @@
 
     /* Accessibility - Focus Styles */
     .feature-btn:focus-visible,
-    .modal-btn:focus-visible {
+    .modal-btn:focus-visible,
+    .contact-btn:focus-visible {
         outline: 2px solid #44634d;
         outline-offset: 2px;
     }
@@ -620,6 +691,11 @@
     </div>
     <% } %>
 </div>
+
+<!-- Contact Button -->
+<a href="contact.jsp" class="contact-btn" aria-label="Contact Us">
+    <i class="fas fa-envelope"></i>
+</a>
 
 <!-- Logout Confirmation Modal -->
 <div id="logoutModal" class="modal">

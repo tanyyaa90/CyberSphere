@@ -481,12 +481,11 @@
                 <a href="<%= request.getContextPath() %>/profile?edit=true" class="btn btn-primary">
                     <i class="fas fa-edit"></i> Edit Profile
                 </a>
-                <button class="btn btn-ghost" onclick="alert('Password change coming soon!')">
-                    <i class="fas fa-key"></i> Change Password
-                </button>
+                <button class="btn btn-ghost" onclick="window.location.href='forgotPassword.jsp'">
+    <i class="fas fa-key"></i> Forgot Password
+</button>
             </div>
 
-        <%-- ── Edit mode ───────────────────────────────────────── --%>
         <% } else { %>
 
             <div class="edit-note">

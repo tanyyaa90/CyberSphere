@@ -8,8 +8,8 @@ import java.util.List;
 public class QuestionDAO {
 
     private static final String DB_URL  = "jdbc:mysql://localhost:3306/cybersphere";
-    private static final String DB_USER = "root";
-    private static final String DB_PASS = "root";
+    private static final String DB_USER = System.getenv().getOrDefault("DB_USER", "root");
+    private static final String DB_PASS = System.getenv().getOrDefault("DB_PASS", "root");
 
     public List<Question> getQuestionsByLevelAndSublevel(String level, String sublevel) {
         List<Question> questions = new ArrayList<>();

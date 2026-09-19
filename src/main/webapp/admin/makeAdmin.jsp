@@ -23,9 +23,20 @@
     if (profileImage == null) profileImage = "https://i.ibb.co/6RfWN4zJ/buddy-10158022.png";
     
     // Database connection
-    String url = "jdbc:mysql://localhost:3306/cybersphere";
-    String dbUser = "root";
-    String dbPass = "root";
+    String url = System.getenv().getOrDefault(
+    "DB_URL",
+    "jdbc:mysql://localhost:3306/cybersphere"
+);
+
+String dbUser = System.getenv().getOrDefault(
+    "DB_USER",
+    "root"
+);
+
+String dbPass = System.getenv().getOrDefault(
+    "DB_PASS",
+    "root"
+);
     
     Connection conn = null;
     Statement stmt = null;
@@ -73,11 +84,11 @@
                         "can_manage_messages = ?, can_view_logs = ? " +
                         "WHERE user_id = ?";
                     ps = conn.prepareStatement(updatePermSql);
-                    ps.setBoolean(2, canManageQuizzes);
-                    ps.setBoolean(3, canManageContent);
-                    ps.setBoolean(4, canManageMessages);
-                    ps.setBoolean(5, canViewLogs);
-                    ps.setInt(6, targetUserId);
+                    ps.setBoolean(1, canManageQuizzes);
+                    ps.setBoolean(2, canManageContent);
+                    ps.setBoolean(3, canManageMessages);
+                    ps.setBoolean(4, canViewLogs);
+                    ps.setInt(5, targetUserId);
                     ps.executeUpdate();
                 } else {
                     // Insert new permissions
@@ -85,6 +96,7 @@
                                            "VALUES (?, ?, ?, ?, ?, ?)";
                     ps = conn.prepareStatement(insertPermSql);
                     ps.setInt(1, targetUserId);
+                    ps.setBoolean(2, false); // Default value for can_manage_users
                     ps.setBoolean(3, canManageQuizzes);
                     ps.setBoolean(4, canManageContent);
                     ps.setBoolean(5, canManageMessages);

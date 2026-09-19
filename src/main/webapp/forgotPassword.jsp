@@ -325,8 +325,8 @@ response.setDateHeader("Expires", 0);
         </div>
         
         <h2>🔐 Forgot Password</h2>
-        <div class="subtitle">Choose how you want to reset your password</div>
-        
+        <div> </div>
+                
         <% if(request.getAttribute("message") != null) { %>
             <div class="message"><%= request.getAttribute("message") %></div>
         <% } %>
@@ -349,11 +349,6 @@ response.setDateHeader("Expires", 0);
                     <div class="icon">📧</div>
                     <div class="label">Email</div>
                     <div class="sub-label">Get reset link via email</div>
-                </div>
-                <div class="toggle-option mobile" onclick="selectMethod('mobile')" id="mobileOption">
-                    <div class="icon">📱</div>
-                    <div class="label">Mobile</div>
-                    <div class="sub-label">Get reset code via SMS</div>
                 </div>
             </div>
             

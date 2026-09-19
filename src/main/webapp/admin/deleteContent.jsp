@@ -16,9 +16,17 @@
     PreparedStatement ps = null;
     
     try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/cybersphere", "root", "root");
+    	Class.forName("com.mysql.cj.jdbc.Driver");
+
+    	String DB_URL = System.getenv().getOrDefault(
+    	    "DB_URL",
+    	    "jdbc:mysql://localhost:3306/cybersphere"
+    	);
+
+    	String DB_USER = System.getenv().getOrDefault("DB_USER", "root");
+    	String DB_PASS = System.getenv().getOrDefault("DB_PASS", "root");
+
+    	conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
         
         ps = conn.prepareStatement("DELETE FROM learning_content WHERE id = ?");
         ps.setInt(1, Integer.parseInt(id));

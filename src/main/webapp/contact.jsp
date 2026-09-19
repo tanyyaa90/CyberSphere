@@ -601,19 +601,6 @@
                     We reply within 24 hours
                 </p>
             </div>
-
-            <div class="info-card">
-                <div class="info-icon">
-                    <i class="fas fa-phone-alt"></i>
-                </div>
-                <h3>Call Us</h3>
-                <p>
-                    <a href="tel:+919876543210">+91 98765 43210</a>
-                </p>
-                <p style="color: #6b7280; font-size: 12px; margin-top: 10px;">
-                    Mon-Fri, 9am-6pm IST
-                </p>
-            </div>
         </div>
 
         <!-- FAQ Section -->
@@ -650,8 +637,6 @@
             <div class="footer-links">
                 <a href="about.jsp">About</a>
                 <a href="contact.jsp">Contact</a>
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
             </div>
         </div>
     </footer>

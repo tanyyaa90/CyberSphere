@@ -631,7 +631,7 @@
                 <h1>Master <span>Cybersecurity</span><br>With Interactive Learning</h1>
                 <p class="hero-description">
                     CyberSphere is your comprehensive platform for learning cybersecurity, 
-                    detecting phishing attempts, and testing your knowledge through interactive 
+                    detecting threats, and testing your knowledge through interactive 
                     quizzes at various difficulty levels.
                 </p>
                 <div class="hero-stats">
@@ -653,8 +653,8 @@
                 <div class="feature-icons">
                     <div class="feature-icon-item">
                         <i class="fas fa-shield-alt"></i>
-                        <h4>Phishing Detection</h4>
-                        <p>Analyze emails for threats</p>
+                        <h4>Detection Tools</h4>
+                        <p>Analyze content for threats</p>
                     </div>
                     <div class="feature-icon-item">
                         <i class="fas fa-question-circle"></i>
@@ -696,8 +696,8 @@
                 
                 <div class="feature-card">
                     <i class="fas fa-envelope-open-text"></i>
-                    <h3>Phishing Detection</h3>
-                    <p>Learn to identify sophisticated phishing attempts with our real-world email analyzer. Understand the red flags that indicate malicious intent and protect yourself and your organization.</p>
+                    <h3>Detection Tools</h3>
+                    <p>Learn to identify sophisticated thraets with our real-world email analyzer. Understand the red flags that indicate malicious intent and protect yourself and your organization.</p>
                 </div>
                 
                 <div class="feature-card">
