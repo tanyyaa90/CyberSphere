@@ -60,12 +60,23 @@ public class UrlScannerServlet extends HttpServlet {
             
          
             try {
-                String jdbcURL = "jdbc:mysql://localhost:3306/cybersphere";
-                String dbUser = "root";
-                String dbPass = "root";
+
+                String jdbcURL = System.getenv().getOrDefault(
+                    "DB_URL",
+                    "jdbc:mysql://localhost:3306/cybersphere"
+                );
+
+                String dbUser = System.getenv().getOrDefault("DB_USER", "root");
+
+                String dbPass = System.getenv().getOrDefault("DB_PASS", "root");
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection(jdbcURL, dbUser, dbPass);
+
+                Connection con = DriverManager.getConnection(
+                    jdbcURL,
+                    dbUser,
+                    dbPass
+                );
 
                 String json = sb.toString();
 

@@ -21,9 +21,14 @@ if(userId == null){ response.sendRedirect("login.jsp"); return; }
 String levelSafe    = escHtml(level);
 String levelDisplay = escHtml(level.substring(0,1).toUpperCase() + level.substring(1));
 
-String url    = "jdbc:mysql://localhost:3306/cybersphere";
-String dbUser = "root";
-String dbPass = "root";
+String url = System.getenv().getOrDefault(
+	    "DB_URL",
+	    "jdbc:mysql://localhost:3306/cybersphere"
+	);
+
+	String dbUser = System.getenv().getOrDefault("DB_USER", "root");
+
+	String dbPass = System.getenv().getOrDefault("DB_PASS", "root");
 
 Connection con = null;
 PreparedStatement ps = null;

@@ -15,10 +15,13 @@ import util.RateLimiter;
 public class ForgotPasswordServlet extends HttpServlet {
     
     // Database connection info - UPDATE THESE WITH YOUR ACTUAL VALUES
-	private static final String DB_URL = System.getenv().getOrDefault("DB_URL", "jdbc:mysql://localhost:3306/cybersphere");
-	private static final String DB_USER = System.getenv().getOrDefault("DB_USER", "root");
-	private static final String DB_PASS = System.getenv().getOrDefault("DB_PASS", "root");
-    
+	private static final String DB_URL = System.getenv().getOrDefault(
+		    "DB_URL",
+		    "jdbc:mysql://localhost:3306/cybersphere"
+		);
+
+		private static final String DB_USER = System.getenv().getOrDefault("DB_USER", "root");
+		private static final String DB_PASS = System.getenv().getOrDefault("DB_PASS", "root");
     // Email configuration - UPDATE THESE WITH YOUR ACTUAL VALUES
     private static final String SMTP_HOST = "smtp.gmail.com";
     private static final String SMTP_PORT = "587";

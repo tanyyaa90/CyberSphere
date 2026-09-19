@@ -77,15 +77,29 @@ public class PasswordCheckServlet extends HttpServlet {
 
 
             // ===== DATABASE INSERT START =====
+         // ===== DATABASE INSERT START =====
+
             try {
-                String jdbcURL = "jdbc:mysql://localhost:3306/cybersphere";
-                String dbUser = "root";
-                String dbPass = "root";
+
+                String jdbcURL = System.getenv().getOrDefault(
+                    "DB_URL",
+                    "jdbc:mysql://localhost:3306/cybersphere"
+                );
+
+                String dbUser = System.getenv().getOrDefault("DB_USER", "root");
+
+                String dbPass = System.getenv().getOrDefault("DB_PASS", "root");
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection(jdbcURL, dbUser, dbPass);
+
+                Connection con = DriverManager.getConnection(
+                    jdbcURL,
+                    dbUser,
+                    dbPass
+                );
 
                 String riskLevel;
+
                 if (count == 0) {
                     riskLevel = "low";
                 } else if (count < 1000) {
@@ -95,13 +109,17 @@ public class PasswordCheckServlet extends HttpServlet {
                 }
 
                 HttpSession session = request.getSession();
+
                 Integer userId = (Integer) session.getAttribute("userId");
 
                 String ipAddress = request.getRemoteAddr();
 
-                String sql = "INSERT INTO password_checker_log (user_id, password_hash, prefix, breach_count, risk_level, ip_address) VALUES (?, ?, ?, ?, ?, ?)";
+                String sql = "INSERT INTO password_checker_log "
+                    + "(user_id, password_hash, prefix, breach_count, risk_level, ip_address) "
+                    + "VALUES (?, ?, ?, ?, ?, ?)";
 
                 PreparedStatement ps = con.prepareStatement(sql);
+
                 ps.setInt(1, userId != null ? userId : 0);
                 ps.setString(2, hash);
                 ps.setString(3, prefix);
@@ -115,20 +133,28 @@ public class PasswordCheckServlet extends HttpServlet {
                 con.close();
 
             } catch (Exception dbEx) {
+
                 dbEx.printStackTrace();
             }
-            // ===== DATABASE INSERT END =====
-            
-            
-            
-            request.setAttribute("checked", true);
-            request.setAttribute("pwnCount", count);
-            request.getRequestDispatcher("passwordChecker.jsp").forward(request, response);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-            request.setAttribute("error", "Error checking password: " + e.getMessage());
-            request.getRequestDispatcher("passwordChecker.jsp").forward(request, response);
-        }
-    }
-} 
+
+request.setAttribute("checked", true);
+request.setAttribute("pwnCount", count);
+
+request.getRequestDispatcher("passwordChecker.jsp")
+       .forward(request, response);
+
+} catch (Exception e) {
+
+    e.printStackTrace();
+
+    request.setAttribute(
+        "error",
+        "Error checking password: " + e.getMessage()
+    );
+
+    request.getRequestDispatcher("passwordChecker.jsp")
+           .forward(request, response);
+}
+
+}
+}

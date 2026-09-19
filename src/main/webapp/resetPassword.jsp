@@ -10,9 +10,14 @@
     int userId = 0;
     
     // Database connection parameters
-    String DB_URL = "jdbc:mysql://localhost:3306/cybersphere";
-    String DB_USER = "root";
-    String DB_PASS = "root";
+    String url = System.getenv().getOrDefault(
+    "DB_URL",
+    "jdbc:mysql://localhost:3306/cybersphere"
+);
+
+String dbUser = System.getenv().getOrDefault("DB_USER", "root");
+
+String dbPass = System.getenv().getOrDefault("DB_PASS", "root");
     
     if (token == null || token.trim().isEmpty()) {
         errorMessage = "No reset token provided.";
