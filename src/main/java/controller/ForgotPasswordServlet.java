@@ -15,9 +15,9 @@ import util.RateLimiter;
 public class ForgotPasswordServlet extends HttpServlet {
     
     // Database connection info - UPDATE THESE WITH YOUR ACTUAL VALUES
-	private static final String DB_URL = System.getenv("DB_URL");
-	private static final String DB_USER = System.getenv("DB_USER");
-	private static final String DB_PASS = System.getenv("DB_PASS");
+	private static final String DB_URL = System.getenv().getOrDefault("DB_URL", "jdbc:mysql://localhost:3306/cybersphere");
+	private static final String DB_USER = System.getenv().getOrDefault("DB_USER", "root");
+	private static final String DB_PASS = System.getenv().getOrDefault("DB_PASS", "root");
     
     // Email configuration - UPDATE THESE WITH YOUR ACTUAL VALUES
     private static final String SMTP_HOST = "smtp.gmail.com";
@@ -26,7 +26,7 @@ public class ForgotPasswordServlet extends HttpServlet {
     private static final String SMTP_PASSWORD = "vfatphbhoczvxplk"; // App password
     
     // App URL - UPDATE THIS FOR YOUR DEPLOYMENT
-    private static final String APP_URL = "http://localhost:8080/cybersphere";
+    private static final String APP_URL = "http://localhost:8080/ROOT";
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

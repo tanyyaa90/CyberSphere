@@ -13,9 +13,9 @@ import java.sql.*;
 @WebServlet("/ResultServlet")
 public class ResultServlet extends HttpServlet {
 
-	private static final String DB_URL = System.getenv("DB_URL");
-	private static final String DB_USER = System.getenv("DB_USER");
-	private static final String DB_PASS = System.getenv("DB_PASS");
+	private static final String DB_URL = System.getenv().getOrDefault("DB_URL", "jdbc:mysql://localhost:3306/cybersphere");
+	private static final String DB_USER = System.getenv().getOrDefault("DB_USER", "root");
+	private static final String DB_PASS = System.getenv().getOrDefault("DB_PASS", "root");
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

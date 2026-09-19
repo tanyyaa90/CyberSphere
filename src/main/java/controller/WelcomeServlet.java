@@ -25,6 +25,6 @@ public class WelcomeServlet extends HttpServlet {
         }
 
         // Not logged in — show welcome page
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("welcome.jsp").forward(request, response);
     }
 }
